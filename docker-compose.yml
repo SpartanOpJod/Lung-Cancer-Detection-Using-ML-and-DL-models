@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Flask Backend API
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lung-cancer-api
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./models:/app/models
+      - ./data:/app/data
+    networks:
+      - lung-cancer-net
+
+  # React Frontend
+  frontend:
+    image: node:18-alpine
+    container_name: lung-cancer-ui
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - api
+    networks:
+      - lung-cancer-net
+
+networks:
+  lung-cancer-net:
+    driver: bridge
