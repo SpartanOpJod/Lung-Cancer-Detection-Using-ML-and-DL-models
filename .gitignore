@@ -98,8 +98,7 @@ models/**/*.pkl
 models/**/*.pth
 models/**/*.pt
 
-# Allow ONLY best deployed model (Git LFS)
-!models/dl/efficientnet_b0_hybrid_best.pth
+
 
 # ========================
 # Temporary / Cache
@@ -115,3 +114,9 @@ data/meta/**/*.bak
 
 .idea/shelf/
 .idea/**/shelf/
+
+# Models (ignore ALL weights)
+models/**/*.pth
+models/**/*.pt
+models/**/*.ckpt
+models/**/*.pkl
