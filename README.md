@@ -1,115 +1,176 @@
-🫁 Lung Cancer Detection Using Machine Learning & Deep Learning
-📌 Project Overview
+<h1 align="center">🫁 Lung Cancer Detection using Machine Learning & Deep Learning</h1>
 
-This project presents an AI-based lung cancer detection system using CT scan images.
-Multiple Machine Learning (ML) and Deep Learning (DL) models were trained and evaluated to classify lung CT slices into different cancer types. The best-performing model was further optimized and prepared for deployment.
+<p align="center">
+  An end-to-end AI system for lung cancer detection from CT scan images using 
+  <b>Deep Learning, Hybrid Optimization</b>, and a <b>Flask + React</b> web application.
+</p>
 
-📊 Dataset
+<hr/>
 
-Source: Kaggle – Chest CT Scan Images
-https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images
+<h2>📌 Project Overview</h2>
+<p>
+This project focuses on detecting lung cancer from chest CT scan images using multiple 
+Machine Learning and Deep Learning models. After extensive evaluation, 
+<b>EfficientNet-B0</b> achieved the best performance and was further enhanced using 
+<b>hybrid metaheuristic optimization</b>.
+</p>
 
-Modality: CT scan images (slice-level)
+<hr/>
 
-Classes:
+<h2>📊 Dataset</h2>
+<ul>
+  <li><b>Source:</b> <a href="https://www.kaggle.com/datasets/mohamedhanyyy/chest-ctscan-images">Kaggle – Chest CT Scan Images</a></li>
+  <li><b>Modality:</b> CT scan slices</li>
+  <li><b>Classes:</b>
+    <ul>
+      <li>Normal</li>
+      <li>Adenocarcinoma</li>
+      <li>Large Cell Carcinoma</li>
+      <li>Squamous Cell Carcinoma</li>
+    </ul>
+  </li>
+</ul>
 
-Normal
+<p><i>⚠️ Predictions are slice-level, not patient-level.</i></p>
 
-Adenocarcinoma
+<hr/>
 
-Large Cell Carcinoma
+<h2>🔧 Data Preprocessing</h2>
+<ul>
+  <li>Grayscale conversion</li>
+  <li>Resize to <b>224 × 224</b></li>
+  <li>Intensity normalization</li>
+  <li>Train / Validation / Test split</li>
+  <li>On-the-fly data augmentation during training</li>
+</ul>
 
-Squamous Cell Carcinoma
+<hr/>
 
-🔧 Data Preprocessing
+<h2>🧠 Models Implemented</h2>
 
-Images converted to grayscale
+<h3>Deep Learning</h3>
+<ul>
+  <li>ResNet-50</li>
+  <li><b>EfficientNet-B0 ✅</b></li>
+  <li>Vision Transformer (ViT)</li>
+  <li>Swin Transformer</li>
+</ul>
 
-Resized to 224 × 224
+<h3>Machine Learning (on CNN features)</h3>
+<ul>
+  <li>Logistic Regression</li>
+  <li>SVM (RBF Kernel)</li>
+  <li>Random Forest</li>
+  <li>XGBoost</li>
+</ul>
 
-Intensity normalization applied
+<hr/>
 
-Dataset split into train / validation / test
+<h2>🏆 Best Model Performance</h2>
+<ul>
+  <li><b>Model:</b> EfficientNet-B0</li>
+  <li><b>Base Accuracy:</b> ~93.3%</li>
+  <li><b>After Optimization:</b> <b>96.7%</b></li>
+  <li><b>Input Size:</b> 224 × 224</li>
+  <li><b>Device:</b> CUDA / CPU fallback</li>
+</ul>
 
-On-the-fly data augmentation used during training to improve generalization
+<hr/>
 
-🧠 Models Implemented
-Deep Learning Models
+<h2>⚙️ Hybrid Optimization</h2>
+<p>
+To improve performance and stability, hybrid metaheuristic optimization techniques were applied:
+</p>
+<ul>
+  <li>Blue Whale Optimization (BWO)</li>
+  <li>Penguin Optimization Algorithm (POA)</li>
+</ul>
 
-ResNet-50
+<hr/>
 
-EfficientNet-B0 ✅
+<h2>📦 Project Structure</h2>
 
-Vision Transformer (ViT)
+<pre>
+project/
+├── data/
+│   ├── raw/
+│   ├── processed/
+│   └── meta/
+├── models/
+├── scripts/
+│   ├── train_resnet50.py
+│   ├── train_efficientnet_b0.py
+│   ├── train_vit.py
+│   ├── train_swin.py
+│   ├── train_ml_models.py
+│   ├── eval_models.py
+│   └── run_hybrid.py
+├── utils/
+│   ├── dataset.py
+│   └── transforms.py
+├── frontend/        # React UI
+├── app.py           # Flask API
+└── README.md
+</pre>
 
-Swin Transformer
+<hr/>
 
-Machine Learning Models (on CNN-extracted features)
+<h2>🌐 Web Application</h2>
 
-Logistic Regression
+<h3>Backend (Flask API)</h3>
+<ul>
+  <li><code>/health</code> – API health check</li>
+  <li><code>/predict</code> – Image prediction endpoint</li>
+  <li><code>/sample-images</code> – List test images</li>
+  <li><code>/sample-image/&lt;path&gt;</code> – Serve image</li>
+  <li><code>/model-info</code> – Model metadata</li>
+</ul>
 
-Support Vector Machine (RBF Kernel)
+<h3>Frontend (React)</h3>
+<ul>
+  <li>Drag & drop CT image upload</li>
+  <li>Sample image testing</li>
+  <li>Confidence & probability visualization</li>
+  <li>Risk-level indicator</li>
+  <li>Responsive modern UI</li>
+</ul>
 
-Random Forest
+<hr/>
 
-XGBoost
+<h2>🚀 Quick Start</h2>
 
-🏆 Best Model
+<h3>Backend</h3>
+<pre>
+pip install -r requirements-api.txt
+python app.py
+</pre>
 
-EfficientNet-B0 achieved the best overall performance due to:
+<h3>Frontend</h3>
+<pre>
+cd frontend
+npm install
+npm start
+</pre>
 
-Efficient compound scaling
+<p>Frontend runs at <code>http://localhost:3000</code></p>
 
-Better generalization
+<hr/>
 
-Lower computational cost
+<h2>⚠️ Important Notes</h2>
+<ul>
+  <li>Accuracy is reported on dataset-level test data</li>
+  <li>Not a medical diagnostic tool</li>
+  <li>Designed as a clinical decision-support system</li>
+</ul>
 
-Performance:
+<hr/>
 
-Base Accuracy: ~93.3%
+<h2>📄 License</h2>
+<p>See the <code>LICENSE</code> file in the project root.</p>
 
-After Hybrid Optimization: ~96.7%
+<hr/>
 
-⚙️ Hybrid Optimization
-
-To further enhance performance, metaheuristic optimization techniques were applied:
-
-Blue Whale Optimization (BWO)
-
-Penguin Optimization Algorithm (POA)
-
-These optimizers fine-tuned model parameters, leading to improved accuracy and stability.
-
-🌐 Deployment Architecture
-
-Backend: Flask (Python)
-
-Frontend: React
-
-Model: EfficientNet-B0 (CPU-friendly)
-
-REST API endpoints for prediction and model information
-
-Designed as a decision-support system, not a diagnostic replacement
-
-⚠️ Important Notes
-
-Accuracy reported is dataset-level test accuracy
-
-Predictions are slice-level, not patient-level
-
-Low confidence on some slices is expected due to tumor invisibility or ambiguity
-
-The system is intended to assist clinicians, not replace medical professionals
-
-📦 Repository Policy
-
-Large datasets and trained model weights are excluded due to size constraints
-
-Only source code, scripts, and metadata are version-controlled
-
-Models can be regenerated using the provided training scripts
-
-✅ Conclusion
-
-This project demonstrates the effective use of deep learning and hybrid optimization techniques for lung cancer detection from CT images, while addressing real-world challenges such as preprocessing, deployment consistency, and ethical AI usage in healthcare.
+<p align="center">
+  <b>Built with ❤️ for Medical AI Research</b><br/>
+  <i>Version 1.0.0 • January 2026</i>
+</p>
