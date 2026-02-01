@@ -108,3 +108,10 @@ models/**/*.pt
 *.temp
 .cache/
 
+# Meta backups (not needed)
+data/meta/backup/
+data/meta/backup_before_merge/
+data/meta/**/*.bak
+
+.idea/shelf/
+.idea/**/shelf/
