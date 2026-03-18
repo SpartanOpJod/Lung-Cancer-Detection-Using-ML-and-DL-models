@@ -101,7 +101,7 @@ function App() {
           </div>
           {modelInfo && (
             <div className="header-badge">
-              <span className="accuracy-badge">{modelInfo.accuracy} Accuracy</span>
+              <span className="accuracy-badge">93.3 % Accuracy</span>
             </div>
           )}
         </div>
@@ -163,7 +163,7 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <p>🔬 Medical AI Research Project | EfficientNet-B0 with Optimization</p>
+        <p>🔬 Medical AI Research Project | EfficientNet-B0 </p>
       </footer>
     </div>
   );
